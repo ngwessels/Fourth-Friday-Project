@@ -6,12 +6,25 @@
 
 ## Description
 
-* _The main purpose of this application/website is to create a list of pizza orders from user. It will ask a series of questions and some of the questions include:
+_The main purpose of this application/website is to create a list of pizza orders from user. It will ask a series of questions and some of the questions include:
   1. How many Pizzas are you wanting to order?
+  2. What size for your pizza(s)?
+  3. How much Cheese?
+  4. What kind of sauce?
+  5. What kind of meats?
+  6. What kind of vegetables
+Depending on the amount of pizzas the user is requesting, the form will reset and ask the user the same questions for each pizza. After each time the user presses the submit button the application will push all the results to a object. After the user is finished the program will compile all the results and display them. It will account for different prices for each pizza._
+
 
 ## Setup/Installation Requirements
 
-
+* _This application will be stored on Github for easy access. But to be able to do that the user must complete a few things first.
+  1. Open the terminal on your device. Make sure you have the Git Library installed.
+  2. If or Once complete you must go to a different directory. Type in "cd ~" to take you to the home directory.
+  3. If you want to place this application in your desktop directory type in "cd desktop".
+  4. Now install the repository from Github by typing "git clone https://github.com/ngwessels/Fourth-Friday-Project".
+  5. Once finished installing type in "Fourth-Friday-Project".
+  6. And last step type in "git remote -v" to see what name was given to the repository
 
 ## Known Bugs
 
