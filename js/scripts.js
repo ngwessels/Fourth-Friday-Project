@@ -1,6 +1,6 @@
 function orderPizza() {
-  this.pizzaArray;
-  this.currentId;
+  this.pizzaArray = [];
+  this.currentId = 0;
 }
 
 
@@ -14,20 +14,24 @@ orderPizza.prototype.findOrder = function(id) {
 };
 return false;
 }
-}
+
 
 
 orderPizza.prototype.order = function(pizza) {
+  debugger;
   pizza.id = this.assignId();
-  this.pizzaArray.push(players);
+  console.log(pizza);
+  this.pizzaArray.push(pizza);
 }
 
 orderPizza.prototype.assignId = function() {
+  debugger;
   this.currentId += 1;
   return this.currentId;
 }
 
-function addPizza(crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2) {
+function addPizza(amount, crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2) {
+  this.amount = amount,
   this.crust = crust,
   this.size = size,
   this.sauce = sauce,
@@ -46,7 +50,11 @@ var OrderPizza = new orderPizza();
 
 
 function cost(currentOrder) {
-  var order = OrderPizza.findOrder(currendOrder);
+  debugger;
+  var totalCost = 0;
+  var string;
+  var array = [];
+  var order = OrderPizza.findOrder(currentOrder);
   var crustType = order.crust;
   var size = order.size;
   var sauce = order.sauce;
@@ -55,8 +63,35 @@ function cost(currentOrder) {
   var meat2 = order.meat2;
   var veggie1 = order.veggie1;
   var veggie2 = order.veggie2;
-  
-
+  var amount = order.amount;
+  if(size == "Large") {
+    totalCost = totalCost + 3;
+  } else if(size == "Medium") {
+    totalCost = totalCost + 2;
+  } else {
+    totalCost = totalCost + 1;
+  }
+  string = "Thankyou for your Order of " + amount + " " + size + " Pizza. Your order contains: " + cheese + " cheese, ";
+  if(meat1 != "") {
+    string = string + meat1;
+    totalCost = totalCost + 1;
+  }
+  if(meat2 != "") {
+    string = string + ", " + meat2;
+    totalCost = totalCost + 1;
+  }
+  if(veggie1 != "") {
+    string = string + ", " + veggie1;
+    totalCost = totalCost + 1;
+  }
+  if(veggie2 != "") {
+    string = string + ", " + veggie2;
+    totalCost = totalCost + 1;
+  }
+  array.push(string);
+  array.push(totalCost);
+  console.log(array);
+  return array;
 }
 
 
@@ -66,20 +101,28 @@ function cost(currentOrder) {
 
 
 $(document).ready(function() {
-  var currentOrder = 0;
-  $("form#form").submit(function() {
-    var crust = $("input#crust").val();
-    var size = $("input#size").val();
-    var sauce = $("input#sauce").val();
-    var cheese = $("input#cheese").val();
-    var meat1 = $("input#meat1").val();
-    var meat2 = $("input#meat2").val();
-    var veggie1 = $("input#veggie1").val();
-    var veggie2 = $("input#veggie2").val();
-    var pizza = new addPizza(crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2);
+  var currentOrder = 1;
+
+  $("form#form").submit(function(event) {
+    debugger;
+    event.preventDefault();
+    var amount = $("input#amount").val();
+    var crust = $("#crust").val();
+    var size = $("#size").val();
+    var sauce = $("#sauce").val();
+    var cheese = $("#cheese").val();
+    var meat1 = $("#meat1").val();
+    var meat2 = $("#meat2").val();
+    var veggie1 = $("#veggie1").val();
+    var veggie2 = $("#veggie2").val();
+    var pizza = new addPizza(amount, crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2);
     OrderPizza.order(pizza);
     var total = cost(currentOrder);
+    var string = total[0];
+    var price = total[1];
 
+    $("#result").text(string);
+    $("#price").text("The Total price comes to: $" + price);
     currentOrder = currentOrder + 1;
   });
 
