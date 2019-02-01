@@ -30,8 +30,8 @@ orderPizza.prototype.assignId = function() {
   return this.currentId;
 }
 
-function addPizza(amount, crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2) {
-  this.amount = amount,
+function addPizza(crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2) {
+  debugger;
   this.crust = crust,
   this.size = size,
   this.sauce = sauce,
@@ -63,7 +63,6 @@ function cost(currentOrder) {
   var meat2 = order.meat2;
   var veggie1 = order.veggie1;
   var veggie2 = order.veggie2;
-  var amount = order.amount;
   if(size == "Large") {
     totalCost = totalCost + 3;
   } else if(size == "Medium") {
@@ -71,28 +70,56 @@ function cost(currentOrder) {
   } else {
     totalCost = totalCost + 1;
   }
-  string = "Thankyou for your Order of " + amount + " " + size + " Pizzas. Your order contains: " + cheese + " cheese, ";
+  string = " 1 " + size;
   if(meat1 != "") {
-    string = string + meat1;
+    string = string + " with " + meat1;
     totalCost = totalCost + 1;
   }
   if(meat2 != "") {
-    string = string + ", " + meat2;
     totalCost = totalCost + 1;
+    string = string + " and " + meat2;
   }
   if(veggie1 != "") {
-    string = string + ", " + veggie1;
     totalCost = totalCost + 1;
+    string = string + ". Vegtables: " + veggie1;
   }
   if(veggie2 != "") {
-    string = string + ", " + veggie2;
     totalCost = totalCost + 1;
+    string = string + " and " + veggie2;
   }
-  string = string + " and it has " + crustType + " and " + sauce;
+  string = string + " and it has " + crustType + " and " + sauce +".";
   array.push(string);
   array.push(totalCost);
   console.log(array);
   return array;
+}
+
+function getInfo() {
+  debugger;
+  var crust = $("#crust").val();
+  var size = $("#size").val();
+  var sauce = $("#sauce").val();
+  var cheese = $("#cheese").val();
+  var meat1 = $("#meat1").val();
+  var meat2 = $("#meat2").val();
+  var veggie1 = $("#veggie1").val();
+  var veggie2 = $("#veggie2").val();
+  var pizza = new addPizza(crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2);
+  OrderPizza.order(pizza);
+}
+
+function getInfo() {
+  debugger;
+  var crust = $("#crust2").val();
+  var size = $("#size2").val();
+  var sauce = $("#sauce2").val();
+  var cheese = $("#cheese2").val();
+  var meat1 = $("#meat3").val();
+  var meat2 = $("#meat4").val();
+  var veggie1 = $("#veggie3").val();
+  var veggie2 = $("#veggie4").val();
+  var pizza = new addPizza(crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2);
+  OrderPizza.order(pizza);
 }
 
 
@@ -104,28 +131,46 @@ function cost(currentOrder) {
 $(document).ready(function() {
   var currentOrder = 1;
   var amount;
-  $("#form#count").submit(function() {
+  var total;
+  var string = "Your order contains: "
+  var price;
+  $("form#count").submit(function(event) {
+    debugger;
+    event.preventDefault();
     amount = $("input#amount").val();
+    amount = parseInt(amount);
+    $("#count").hide();
+    $("#form").show();
   });
   $("form#form").submit(function(event) {
     debugger;
     event.preventDefault();
-    var amount = $("input#amount").val();
-    var crust = $("#crust").val();
-    var size = $("#size").val();
-    var sauce = $("#sauce").val();
-    var cheese = $("#cheese").val();
-    var meat1 = $("#meat1").val();
-    var meat2 = $("#meat2").val();
-    var veggie1 = $("#veggie1").val();
-    var veggie2 = $("#veggie2").val();
-    var pizza = new addPizza(amount, crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2);
-    OrderPizza.order(pizza);
-    var total = cost(currentOrder);
-    var string = total[0];
-    var price = total[1];
+    for(var gettingOrder = 0; gettingOrder < amount; gettingOrder++) {
+      if(gettingOrder > 0) {
+        $(document).ready(function(){
+          $("form#form2").submit(function(event) {
+            event.preventDefault();
+            getInfo2(currentOrder);
+            document.getElementById("form").reset();
+          });
+        });
+      }
+      if(gettingOrder == 0) {
+        getInfo(amount);
+        $("#form2").show();
+
+      }
+      if(amount - gettingOrder == 1) {
+        $("form").hide();
+      }
+
+    }
+
+    var result = cost(currentOrder);
+    string = string + result[0];
+    price = result[1];
     price = parseInt(price);
-    price = price * amount;
+    total = total + (price * amount);
 
     $("#result").text(string);
     $("#price").text("The Total price comes to: $" + price);
