@@ -5,9 +5,97 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title></title>
+    <title>Order your Favorite Pizza!!</title>
   </head>
   <body>
+    <div class="container">
+      <div class="jumbotron" id="title">
+          <h2>Order Your Pizza</h2>
+          <h3>Let's Get Started</h3>
+      </div>
+      <form id="form">
+        <div class="form-group">
+          <label for="crust">What Crust?</label>
+          <select id="crust" class="form-control">
+            <option>Original Pan Pizza</option>
+            <option>Hand Tossed Pizza</option>
+            <option>Thin N Crispy</option>
+            <option>Stuffed Crust</option>
+          </select>
+          <label for="size">What size?</label>
+          <select id="size" class="form-control">
+            <option>Large</option>
+            <option>Medium</option>
+            <option>Small</option>
+          </select>
+          <label for="sauce">What Sauce Flavor?</label>
+          <select id="sauce" class="form-control">
+            <option>Marinara</option>
+            <option>White Sauce</option>
+            <option>Buffalo</option>
+            <option>Barbeque</option>
+          </select>
+          <label for="cheese">Amount of Cheese. Extra is $1 more</label>
+          <select id="cheese" class="form-control">
+            <option>Extra</option>
+            <option>Regular</option>
+            <option>Light</option>
+            <option>None</option>
+          </select>
+          <label for="meat1">First Meat Choice</label>
+          <select id="meat1" class="form-control">
+            <option></option>
+            <option>Pepperoni</option>
+            <option>Italian Sausage</option>
+            <option>Bacon</option>
+            <option>Ham</option>
+            <option>Chicken</option>
+            <option>Buffalo Wings</option>
+            <option>MeatBall</option>
+            <option>Beef</option>
+            <option>Pork</option>
+          </select>
+          <label for="meat2">Second Meat Choice</label>
+          <select id="meat2" class="form-control">
+            <option></option>
+            <option>Pepperoni</option>
+            <option>Italian Sausage</option>
+            <option>Bacon</option>
+            <option>Ham</option>
+            <option>Chicken</option>
+            <option>Buffalo Wings</option>
+            <option>MeatBall</option>
+            <option>Beef</option>
+            <option>Pork</option>
+          </select>
+
+          <label for="veggie1">Choose your first Vegtable</label>
+          <select id="veggie1" class="form-control">
+            <option></option>
+            <option>PineApple</option>
+            <option>Green Peppers</option>
+            <option>Red Onion</option>
+            <option>Banana Peppers</option>
+            <option>Jalepenos</option>
+            <option>Tomatoes</option>
+            <option>Mushrooms</option>
+          </select>
+          <label for="veggie2">Choose your second Vegtable</label>
+          <select id="veggie2" class="form-control">
+            <option></option>
+            <option>PineApple</option>
+            <option>Green Peppers</option>
+            <option>Red Onion</option>
+            <option>Banana Peppers</option>
+            <option>Jalepenos</option>
+            <option>Tomatoes</option>
+            <option>Mushrooms</option>
+          </select>
+        </div>
+        <button type="submit" name="btn">Submit Order!</button>
+      </form>
+    </div>
+
 
   </body>
 </html>
