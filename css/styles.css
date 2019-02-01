@@ -8,3 +8,14 @@
 #form {
   display: none;
 }
+
+
+#result {
+  font-size: 15px;
+  text-align: center;
+}
+
+#price {
+  font-size: 20px;
+  text-align: center;
+}

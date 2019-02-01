@@ -137,8 +137,13 @@ $(document).ready(function() {
   $("form#count").submit(function(event) {
     event.preventDefault();
     amount = $("input#amount").val();
-    $("#count").hide();
-    $("#form").show();
+    if(amount > 0) {
+      $("#count").hide();
+      $("#form").show();
+    } else {
+      $("#count").hide();
+      $("#price").text("Im sorry you entered in a number equal to or less than zero. Since we only serve customers and cant give you negative pizzas please come back when you want to order a pizza! Have a nice day!")
+    }
   });
   $("form#form").submit(function(event) {
     event.preventDefault();
