@@ -18,20 +18,18 @@ return false;
 
 
 orderPizza.prototype.order = function(pizza) {
-  debugger;
   pizza.id = this.assignId();
   console.log(pizza);
   this.pizzaArray.push(pizza);
 }
 
 orderPizza.prototype.assignId = function() {
-  debugger;
   this.currentId += 1;
   return this.currentId;
 }
 
-function addPizza(crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2) {
-  debugger;
+function addPizza(amount, crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2) {
+  this.amount = amount,
   this.crust = crust,
   this.size = size,
   this.sauce = sauce,
@@ -50,7 +48,6 @@ var OrderPizza = new orderPizza();
 
 
 function cost(currentOrder) {
-  debugger;
   var totalCost = 0;
   var string;
   var array = [];
@@ -63,14 +60,20 @@ function cost(currentOrder) {
   var meat2 = order.meat2;
   var veggie1 = order.veggie1;
   var veggie2 = order.veggie2;
+  var amount = order.amount;
   if(size == "Large") {
-    totalCost = totalCost + 3;
+    totalCost = totalCost + 4;
   } else if(size == "Medium") {
-    totalCost = totalCost + 2;
+    totalCost = totalCost + 3;
   } else {
-    totalCost = totalCost + 1;
+    totalCost = totalCost + 2;
   }
+
   string = " 1 " + size;
+  if(cheese == "Extra") {
+    totalCost = totalCost + 1;
+    string = string + " Extra Cheese "
+  }
   if(meat1 != "") {
     string = string + " with " + meat1;
     totalCost = totalCost + 1;
@@ -94,8 +97,7 @@ function cost(currentOrder) {
   return array;
 }
 
-function getInfo() {
-  debugger;
+function getInfo(amount) {
   var crust = $("#crust").val();
   var size = $("#size").val();
   var sauce = $("#sauce").val();
@@ -104,77 +106,51 @@ function getInfo() {
   var meat2 = $("#meat2").val();
   var veggie1 = $("#veggie1").val();
   var veggie2 = $("#veggie2").val();
-  var pizza = new addPizza(crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2);
-  OrderPizza.order(pizza);
-}
-
-function getInfo() {
-  debugger;
-  var crust = $("#crust2").val();
-  var size = $("#size2").val();
-  var sauce = $("#sauce2").val();
-  var cheese = $("#cheese2").val();
-  var meat1 = $("#meat3").val();
-  var meat2 = $("#meat4").val();
-  var veggie1 = $("#veggie3").val();
-  var veggie2 = $("#veggie4").val();
-  var pizza = new addPizza(crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2);
+  var pizza = new addPizza(amount, crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2);
   OrderPizza.order(pizza);
 }
 
 
-
-
-
+function resetForm() {
+  document.getElementById("form").reset();
+}
 
 
 $(document).ready(function() {
   var currentOrder = 1;
-  var amount;
-  var total;
-  var string = "Your order contains: "
-  var price;
+  var gettingOrder = 0;
+  var amount = 0;
+  var total = 0;
+  var string = "Your order contains: ";
   $("form#count").submit(function(event) {
-    debugger;
     event.preventDefault();
     amount = $("input#amount").val();
-    amount = parseInt(amount);
     $("#count").hide();
     $("#form").show();
   });
   $("form#form").submit(function(event) {
-    debugger;
     event.preventDefault();
-    for(var gettingOrder = 0; gettingOrder < amount; gettingOrder++) {
-      if(gettingOrder > 0) {
-        $(document).ready(function(){
-          $("form#form2").submit(function(event) {
-            event.preventDefault();
-            getInfo2(currentOrder);
-            document.getElementById("form").reset();
-          });
-        });
-      }
-      if(gettingOrder == 0) {
-        getInfo(amount);
-        $("#form2").show();
-
-      }
-      if(amount - gettingOrder == 1) {
-        $("form").hide();
-      }
-
-    }
-
+    getInfo(amount);
     var result = cost(currentOrder);
     string = string + result[0];
-    price = result[1];
+    var price = result[1];
     price = parseInt(price);
-    total = total + (price * amount);
+    total = total + price;
 
-    $("#result").text(string);
-    $("#price").text("The Total price comes to: $" + price);
+
     currentOrder = currentOrder + 1;
+
+    if(gettingOrder < amount) {
+      resetForm();
+    } else {
+      $("#form").hide();
+    }
+    gettingOrder = gettingOrder + 1;
+    if(gettingOrder == amount) {
+      $("#form").hide();
+      $("#result").text(string);
+      $("#price").text("The Total price comes to: $" + total);
+    }
   });
 
 
