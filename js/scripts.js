@@ -1,3 +1,5 @@
+
+// Creating objects and prototypes
 function orderPizza() {
   this.pizzaArray = [];
   this.currentId = 0;
@@ -15,8 +17,6 @@ orderPizza.prototype.findOrder = function(id) {
 return false;
 }
 
-
-
 orderPizza.prototype.order = function(pizza) {
   pizza.id = this.assignId();
   console.log(pizza);
@@ -27,6 +27,9 @@ orderPizza.prototype.assignId = function() {
   this.currentId += 1;
   return this.currentId;
 }
+
+
+// Creating Constructor
 
 function addPizza(amount, crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2) {
   this.amount = amount,
@@ -44,8 +47,7 @@ function addPizza(amount, crust, size, sauce, cheese, meat1, meat2, veggie1, veg
 var OrderPizza = new orderPizza();
 
 
-
-
+// Will compile all pizza types into a string. Alert user what they have ordered and will compile how much it will Constructor
 
 function cost(currentOrder) {
   var totalCost = 0;
@@ -97,6 +99,9 @@ function cost(currentOrder) {
   return array;
 }
 
+
+// Will get new info off new form, after button pressed
+
 function getInfo(amount) {
   var crust = $("#crust").val();
   var size = $("#size").val();
@@ -110,10 +115,18 @@ function getInfo(amount) {
   OrderPizza.order(pizza);
 }
 
+// Will reset form to allow user to put in details of next pizzaArray
 
 function resetForm() {
   document.getElementById("form").reset();
 }
+
+
+
+
+
+
+
 
 $(document).ready(function() {
   var currentOrder = 1;
@@ -131,7 +144,8 @@ $(document).ready(function() {
     event.preventDefault();
     getInfo(amount);
     var result = cost(currentOrder);
-    string = string + result[0];
+    var ul = result[0];
+    string = string + ul;
     var price = result[1];
     price = parseInt(price);
     total = total + price;
