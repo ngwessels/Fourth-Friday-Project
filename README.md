@@ -12,8 +12,8 @@ _The main purpose of this application/website is to create a list of pizza order
   3. How much Cheese?
   4. What kind of sauce?
   5. What kind of meats?
-  6. What kind of vegetables
-Depending on the amount of pizzas the user is requesting, the form will reset and ask the user the same questions for each pizza. After each time the user presses the submit button the application will push all the results to a object. After the user is finished the program will compile all the results and display them. It will account for different prices for each pizza._
+  6. What kind of vegetables_
+_Depending on the amount of pizzas the user is requesting, the form will reset and ask the user the same questions for each pizza. After each time the user presses the submit button the application will push all the results to a object. After the user is finished the program will compile all the results and display them. It will account for different prices for each pizza._
 
 
 ## Setup/Installation Requirements
