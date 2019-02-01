@@ -115,7 +115,6 @@ function resetForm() {
   document.getElementById("form").reset();
 }
 
-
 $(document).ready(function() {
   var currentOrder = 1;
   var gettingOrder = 0;
@@ -136,10 +135,7 @@ $(document).ready(function() {
     var price = result[1];
     price = parseInt(price);
     total = total + price;
-
-
     currentOrder = currentOrder + 1;
-
     if(gettingOrder < amount) {
       resetForm();
     } else {
@@ -152,7 +148,4 @@ $(document).ready(function() {
       $("#price").text("The Total price comes to: $" + total);
     }
   });
-
-
-
 });
