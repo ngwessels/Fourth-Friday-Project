@@ -71,7 +71,7 @@ function cost(currentOrder) {
   } else {
     totalCost = totalCost + 1;
   }
-  string = "Thankyou for your Order of " + amount + " " + size + " Pizza. Your order contains: " + cheese + " cheese, ";
+  string = "Thankyou for your Order of " + amount + " " + size + " Pizzas. Your order contains: " + cheese + " cheese, ";
   if(meat1 != "") {
     string = string + meat1;
     totalCost = totalCost + 1;
@@ -88,6 +88,7 @@ function cost(currentOrder) {
     string = string + ", " + veggie2;
     totalCost = totalCost + 1;
   }
+  string = string + " and it has " + crustType + " and " + sauce;
   array.push(string);
   array.push(totalCost);
   console.log(array);
@@ -102,7 +103,10 @@ function cost(currentOrder) {
 
 $(document).ready(function() {
   var currentOrder = 1;
-
+  var amount;
+  $("#form#count").submit(function() {
+    amount = $("input#amount").val();
+  });
   $("form#form").submit(function(event) {
     debugger;
     event.preventDefault();
@@ -120,6 +124,8 @@ $(document).ready(function() {
     var total = cost(currentOrder);
     var string = total[0];
     var price = total[1];
+    price = parseInt(price);
+    price = price * amount;
 
     $("#result").text(string);
     $("#price").text("The Total price comes to: $" + price);

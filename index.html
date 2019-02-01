@@ -14,13 +14,17 @@
           <h2>Order Your Pizza</h2>
           <h3>Let's Get Started</h3>
       </div>
+      <form id="count">
+        <label for="amount">How Many of these do you want?</label>
+        <input type="number" id="amount" class="form-control">
+      </form>
       <form id="form">
         <div class="form-group">
           <label for="crust">What Crust?</label>
           <select id="crust" class="form-control">
-            <option>Original Pan Pizza</option>
-            <option>Hand Tossed Pizza</option>
-            <option>Thin N Crispy</option>
+            <option>Original Pan Pizza Crust</option>
+            <option>Hand Tossed Pizza Crust</option>
+            <option>Thin N Crispy Crust</option>
             <option>Stuffed Crust</option>
           </select>
           <label for="size">What size?</label>
@@ -31,10 +35,10 @@
           </select>
           <label for="sauce">What Sauce Flavor?</label>
           <select id="sauce" class="form-control">
-            <option>Marinara</option>
+            <option>Marinara Sauce</option>
             <option>White Sauce</option>
-            <option>Buffalo</option>
-            <option>Barbeque</option>
+            <option>Buffalo Sauce</option>
+            <option>Barbeque Sauce</option>
           </select>
           <label for="cheese">Amount of Cheese. Extra is $1 more</label>
           <select id="cheese" class="form-control">
@@ -92,8 +96,6 @@
             <option>Tomatoes</option>
             <option>Mushrooms</option>
           </select>
-          <label for="amount">How Many of these do you want?</label>
-          <input type="number" id="amount" class="form-control">
         </div>
         <button type="submit" name="btn">Submit Order!</button>
       </form>
