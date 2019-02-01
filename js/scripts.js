@@ -70,7 +70,6 @@ function cost(currentOrder) {
   } else {
     totalCost = totalCost + 2;
   }
-
   string = " 1 " + size;
   if(cheese == "Extra") {
     totalCost = totalCost + 1;
