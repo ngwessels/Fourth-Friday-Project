@@ -18,7 +18,7 @@ _Depending on the amount of pizzas the user is requesting, the form will reset a
 
 ## Specs
 
-* _The Program takes in a number of pizzas, the size of the pizzas, the sauce, type of cheese, what vegetables and meats, and than outputs with a order information and price._
+* _The Program takes in a number of pizzas, the size of the pizzas, the sauce, type of cheese, what vegetables and meats, and than outputs order information and price._
   * _User Input: "2", submit first Form_
   * _"Hand Tossed Pizza Crust", "Large", "Marinara Sauce", "Regular", "Pepperoni", "PineApple", "Red Onion", submit second Form._
   * _"Stuffed Crust", "Large", "White Sauce", "Extra", "Buffalo Wings", "Italian Sausage", "Mushrooms", "Jalepenos". Submit third Form._
