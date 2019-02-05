@@ -1,12 +1,12 @@
 
 // Creating objects and prototypes
-function orderPizza() {
+function OrderPizza() {
   this.pizzaArray = [];
   this.currentId = 0;
 }
 
 
-orderPizza.prototype.findOrder = function(id) {
+OrderPizza.prototype.findOrder = function(id) {
   for (var i = 0; i < this.pizzaArray.length; i++) {
   if (this.pizzaArray[i]) {
     if (this.pizzaArray[i].id == id) {
@@ -17,13 +17,13 @@ orderPizza.prototype.findOrder = function(id) {
 return false;
 }
 
-orderPizza.prototype.order = function(pizza) {
+OrderPizza.prototype.order = function(pizza) {
   pizza.id = this.assignId();
   console.log(pizza);
   this.pizzaArray.push(pizza);
 }
 
-orderPizza.prototype.assignId = function() {
+OrderPizza.prototype.assignId = function() {
   this.currentId += 1;
   return this.currentId;
 }
@@ -44,16 +44,16 @@ function addPizza(amount, crust, size, sauce, cheese, meat1, meat2, veggie1, veg
 
 }
 
-var OrderPizza = new orderPizza();
+
 
 
 // Will compile all pizza types into a string. Alert user what they have ordered and will compile how much it will Constructor
 
-function cost(currentOrder) {
+function cost(currentOrder, pizzaOrder) {
   var totalCost = 0;
   var string;
   var array = [];
-  var order = OrderPizza.findOrder(currentOrder);
+  var order = pizzaOrder.findOrder(currentOrder);
   var crustType = order.crust;
   var size = order.size;
   var sauce = order.sauce;
@@ -101,7 +101,7 @@ function cost(currentOrder) {
 
 // Will get new info off new form, after button pressed
 
-function getInfo(amount) {
+function getInfo(amount, pizzaOrder) {
   var crust = $("#crust").val();
   var size = $("#size").val();
   var sauce = $("#sauce").val();
@@ -111,7 +111,7 @@ function getInfo(amount) {
   var veggie1 = $("#veggie1").val();
   var veggie2 = $("#veggie2").val();
   var pizza = new addPizza(amount, crust, size, sauce, cheese, meat1, meat2, veggie1, veggie2);
-  OrderPizza.order(pizza);
+  pizzaOrder.order(pizza);
 }
 
 // Will reset form to allow user to put in details of next pizzaArray
@@ -128,6 +128,7 @@ function resetForm() {
 
 
 $(document).ready(function() {
+  var newOrder = new OrderPizza();
   var currentOrder = 1;
   var gettingOrder = 0;
   var amount = 0;
@@ -146,8 +147,8 @@ $(document).ready(function() {
   });
   $("form#form").submit(function(event) {
     event.preventDefault();
-    getInfo(amount);
-    var result = cost(currentOrder);
+    getInfo(amount, newOrder);
+    var result = cost(currentOrder, newOrder);
     var ul = result[0];
     string = string + ul;
     var price = result[1];

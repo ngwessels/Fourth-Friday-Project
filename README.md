@@ -2,7 +2,7 @@
 
 #### _Website that will collet a pizza order from user and display the order and cost, February 1st 2019._
 
-#### By _Nate Wessels, and direction from Epicodus_
+#### By _Nate Wessels, and direction from Epicodus
 
 ## Description
 
@@ -13,9 +13,17 @@ _ *The main purpose of this application/website is to create a list of pizza ord
   4. What kind of sauce?
   5. What kind of meats?
   6. What kind of vegetables_
-  
+
 _Depending on the amount of pizzas the user is requesting, the form will reset and ask the user the same questions for each pizza. After each time the user presses the submit button the application will push all the results to a object. After the user is finished the program will compile all the results and display them. It will account for different prices for each pizza._
 
+## Specs
+
+* _The Program takes in a number of pizzas, the size of the pizzas, the sauce, type of cheese, what vegetables and meats, and than outputs with a order information and price._
+  * _User Input: "2", submit first Form_
+  * _"Hand Tossed Pizza Crust", "Large", "Marinara Sauce", "Regular", "Pepperoni", "PineApple", "Red Onion", submit second Form._
+  * _"Stuffed Crust", "Large", "White Sauce", "Extra", "Buffalo Wings", "Italian Sausage", "Mushrooms", "Jalepenos". Submit third Form._
+  * _Output: "Your order contains: 1 Large with Pepperoni. Vegtables: PineApple and Red Onion and it has Hand Tossed Pizza Crust and Marinara Sauce. 1 Large Extra Cheese with Buffalo Wings and Italian Sausage. Vegtables: Mushrooms and Jalepenos and it has Stuffed Crust and White Sauce."  
+  * _The Total price comes to: $16_
 
 ## Setup/Installation Requirements
 
@@ -31,7 +39,7 @@ _Depending on the amount of pizzas the user is requesting, the form will reset a
 
 _There are no known Bugs at this time!_
 
-## _Support and contact details_
+## Support and Contact details
 
 _Contact Nate Wessels at nwessels16@gmail.com_
 
