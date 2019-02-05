@@ -20,8 +20,8 @@ _Depending on the amount of pizzas the user is requesting, the form will reset a
 
 * _The Program takes in a number of pizzas, the size of the pizzas, the sauce, type of cheese, what vegetables and meats, and than outputs order information and price._
   * _User Input: "2", submit first Form_
-  * _"Hand Tossed Pizza Crust", "Large", "Marinara Sauce", "Regular", "Pepperoni", "PineApple", "Red Onion", submit second Form._
-  * _"Stuffed Crust", "Large", "White Sauce", "Extra", "Buffalo Wings", "Italian Sausage", "Mushrooms", "Jalepenos". Submit third Form._
+  * _User Input: "Hand Tossed Pizza Crust", "Large", "Marinara Sauce", "Regular", "Pepperoni", "PineApple", "Red Onion", submit second Form._
+  * _User Input: "Stuffed Crust", "Large", "White Sauce", "Extra", "Buffalo Wings", "Italian Sausage", "Mushrooms", "Jalepenos". Submit third Form._
   * _Output: "Your order contains: 1 Large with Pepperoni. Vegtables: PineApple and Red Onion and it has Hand Tossed Pizza Crust and Marinara Sauce. 1 Large Extra Cheese with Buffalo Wings and Italian Sausage. Vegtables: Mushrooms and Jalepenos and it has Stuffed Crust and White Sauce."  
   * _The Total price comes to: $16_
 
